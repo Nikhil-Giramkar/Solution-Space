@@ -20,3 +20,12 @@ Hello World in Express js
 Lets create app.js file and use express to show hello world for all endpoints
 Run it via  
     nodemon app.js
+----------------------------------------------------------------------------------------------------
+
+Middlewares
+---------------
+
+In our application, we should be able to see "About Me" page,
+only when user is logged in.
+Hence before user could access the /about endpoint, we need to do authentication.
+This is done via middlewares.
