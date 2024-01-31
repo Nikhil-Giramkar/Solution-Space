@@ -1,0 +1,22 @@
+MERN Stack Project
+--------------------
+
+Now, to use  different npm packages like Express.js
+We need to first initialize npm here.
+Go to CLI type:
+    npm init -y
+We get a package.json file,
+
+Now install express js framework via npm
+    npm install express
+We get a package-lock.json file,
+package.json file gets updated.
+
+Add node_modules in .gitignore file.
+----------------------------------------------------------------------------------------------------
+
+Hello World in Express js
+-------------------------
+Lets create app.js file and use express to show hello world for all endpoints
+Run it via  
+    nodemon app.js
