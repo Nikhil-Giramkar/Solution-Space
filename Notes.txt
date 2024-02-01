@@ -87,3 +87,8 @@ This config.env will then be added in .gitignore, so no one will be able to see 
 ----------------------------------------------------------------------------------------------------
 
 Create scehma for users collection using mongoose
+----------------------------------------------------------------------------------------------------
+
+Install ThunderClient from VSCode extensions, which is similar to Postman.
+
+Now, lets put endpoints in seprate folder "router/auth"

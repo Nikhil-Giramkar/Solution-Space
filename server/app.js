@@ -19,10 +19,12 @@ const middleware = (req, res, next) =>{
     console.log(`Hello, my middeware called`);
     next();
 }
+//We will use middleware syntax to call router
+app.use(require('./router/auth'));
 
-app.get("/", (req, res)=>{
-    res.send("Hello World from Backend Home Page!!!");
-})
+// app.get("/", (req, res)=>{
+//     res.send("Hello World from Backend Home Page!!!");
+// })
 
 app.get("/contact", (req, res)=>{
     res.send("Hello World from Backend Contact Us!!!");
