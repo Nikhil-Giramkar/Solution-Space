@@ -68,5 +68,19 @@ Copy the connection string shown on screen
 mongodb+srv://niksgiramkar:<password>@cluster0.deazlu0.mongodb.net/?retryWrites=true&w=majority
 And close the pop-up
 
-Now install mongoose via npm.
+Now install mongoose via npm in server folder
+
 use mongoose and DB connection strings in app.js
+
+In MongoDB Atlas, click on "Network Access" tab
+Click: "Allow Access from Anywhere" 
+run app via nodemon app.js
+
+Now before pushing the code to Github, we need to secure the password.
+To do so, we need to use a package "dotenv"
+
+So lets do 
+    npm install dotenv
+Now create a "config.env" file in server folder.
+And add he DB Connection string inside it.
+This config.env will then be added in .gitignore, so no one will be able to see DB Connection string and password.
