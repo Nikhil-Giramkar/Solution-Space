@@ -6,4 +6,13 @@ router.get('/', (req, res)=>{
 })
 
 
+router.post('/register', (req, res)=>{
+    //See what we get in request body
+    console.log(req.body);
+    res.json({
+        "message": req.body
+    });
+})
+
+
 module.exports = router;

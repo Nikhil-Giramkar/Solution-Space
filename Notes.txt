@@ -92,3 +92,22 @@ Create scehma for users collection using mongoose
 Install ThunderClient from VSCode extensions, which is similar to Postman.
 
 Now, lets put endpoints in seprate folder "router/auth"
+
+Create a POST request in auth.js for register page.
+Go to Thunder CLient, create a new collection, give it a name.
+Add new POST request in it.
+    specify content-type as appliction/json in Headers
+    give some json in Request body:
+        {
+            "name": "Nikhil G",
+            "email": "niks@work.com",
+            "phone": 1234567890,
+            "work": "software engg",
+            "password": "password",
+            "confirmPassword": "password"
+        }
+
+When we send post request, we get "undefined" in console.
+Because our app does not understand json, to specify that, we use one more middleware.
+
+Now when we again send POST request, we see what we requested

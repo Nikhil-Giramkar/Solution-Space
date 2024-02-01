@@ -14,6 +14,9 @@ require('./db/conn')
 // const User = require('./model/userSchema')
 
 //Middleware
+//To help app understand json data in request body
+app.use(express.json());
+
 //Middlewares have access to Request, response and next() function, which help calling next middleware below it
 const middleware = (req, res, next) =>{
     console.log(`Hello, my middeware called`);
