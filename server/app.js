@@ -1,27 +1,15 @@
 const express = require('express')
-const mongoose = require("mongoose")
 const dotenv = require('dotenv')
 
 const app = express();
 //Determine the path of config.env file
 dotenv.config({path: './config.env'});
 
-//Fetch database connection string from DATABASE key stored in config.env file.
-const DBConnectionString = process.env.DATABASE;
-
 //Fetch PORT number from config file 
 const PORT = process.env.PORT
 
-//Connection
-//mongoose.connect returns a promise
-mongoose.connect(DBConnectionString) 
-    .then(()=>{
-        console.log("MongoDB Connection successful")
-    })
-    .catch(err => {
-        console.log(`Connection Not successful \nError: ${err}`);
-    })
-
+//Connecting to database directly
+require('./db/conn')
 
 //Middleware
 //Middlewares have access to Request, response and next() function, which help calling next middleware below it
