@@ -111,3 +111,8 @@ When we send post request, we get "undefined" in console.
 Because our app does not understand json, to specify that, we use one more middleware.
 
 Now when we again send POST request, we see what we requested
+--------------------------------------------------------------------
+
+After doing all validations, we write save() and handle promises
+Run the app and send post request again with Thunder Client,
+We get 210 status, entry created, check Mongo Atlas, entry is really created
