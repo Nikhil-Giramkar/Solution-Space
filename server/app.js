@@ -10,6 +10,8 @@ const PORT = process.env.PORT
 
 //Connecting to database directly
 require('./db/conn')
+//using User collection
+// const User = require('./model/userSchema')
 
 //Middleware
 //Middlewares have access to Request, response and next() function, which help calling next middleware below it

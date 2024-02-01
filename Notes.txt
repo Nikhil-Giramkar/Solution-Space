@@ -84,3 +84,6 @@ So lets do
 Now create a "config.env" file in server folder.
 And add he DB Connection string inside it.
 This config.env will then be added in .gitignore, so no one will be able to see DB Connection string and password.
+----------------------------------------------------------------------------------------------------
+
+Create scehma for users collection using mongoose
