@@ -1,6 +1,10 @@
 const express = require('express')
+const mongoose = require("mongoose")
+
 const app = express();
 const PORT = 8765;
+
+const DBConnectionString = "mongodb+srv://niksgiramkar:<password>@cluster0.deazlu0.mongodb.net/?retryWrites=true&w=majority";
 
 
 //Middleware

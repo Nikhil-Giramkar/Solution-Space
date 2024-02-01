@@ -29,3 +29,44 @@ In our application, we should be able to see "About Me" page,
 only when user is logged in.
 Hence before user could access the /about endpoint, we need to do authentication.
 This is done via middlewares.
+----------------------------------------------------------------------------------------------------
+
+Conection with MongoDB
+-----------------------
+
+Once logged into MongoDB Atlas,
+First create a new Project, give it a name.
+Then click on "Build a Database" in Database tab
+Select Free Tier.
+
+Before that install MongoDB community version on your PC.
+While installer is running note down these directories shown in installer:
+
+Data Directory: C:\Program Files\MongoDB\Server\7.0\data\
+Log Directory: C:\Program Files\MongoDB\Server\7.0\log\
+Mongod client: C:\Program Files\MongoDB\Server\7.0\bin
+
+Since I am using MongoDB v7.0, I only see mongod.exe in ot.
+mongo.exe is missing, hence I need to download mongosh shell seperately.
+Download and install it.: https://www.youtube.com/watch?v=PHXhuc8MwRw
+
+Restart VS Code
+run     mongod --version
+        mongosh --version
+If both versions are shown, our MongoDB is installed and ENV Variables are set properly.
+
+Now on MongoDB Atlas
+Click on "Add Data" in Cluster0
+Click on "Create DB on Atlas"
+    Give your DB a name, "mernstack"
+    Give collection name as, "users
+
+Now go to "Database" tab and click on"Connect" button for "Cluster0" (our cluster).
+Then choose: "Connect to your application"
+Driver: "Node Js" obviosuly
+Copy the connection string shown on screen
+mongodb+srv://niksgiramkar:<password>@cluster0.deazlu0.mongodb.net/?retryWrites=true&w=majority
+And close the pop-up
+
+Now install mongoose via npm.
+use mongoose and DB connection strings in app.js
