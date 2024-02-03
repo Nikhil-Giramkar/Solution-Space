@@ -23,7 +23,7 @@ const middleware = (req, res, next) =>{
     next();
 }
 //We will use middleware syntax to call router
-app.use(require('./router/auth'));
+app.use(require('./router/auth-router'));
 
 // app.get("/", (req, res)=>{
 //     res.send("Hello World from Backend Home Page!!!");

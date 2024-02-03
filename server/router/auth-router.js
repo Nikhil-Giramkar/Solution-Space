@@ -7,9 +7,9 @@ require('../db/conn');
 //Get User model
 const User = require('../model/userSchema');
 
-router.get('/', (req, res) => {
-    res.send("Hello from router in auth.js");
-})
+const home = require('../controllers/auth-controller');
+
+router.route('/').get(home);
 
 //Promises version
 // router.post('/register', (req, res) => {
@@ -54,7 +54,7 @@ router.get('/', (req, res) => {
 
 
 //Async Await version
-router.post('/register', async (req, res) => {
+router.route('/register').post(async (req, res) => {
     //See what we get in request body
     console.log(req.body);
 
