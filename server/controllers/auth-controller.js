@@ -6,6 +6,8 @@ and send response back to clients.
 The help organize aplication and seperating concerns, following MVC
 */
 
+const bcrypt = require('bcrypt');
+
 //Get User model
 const User = require('../model/userSchema');
 
@@ -43,10 +45,20 @@ const register = async (req, res) => {
             return res.status(422).json({ error: "User with same email exists" });
 
         //If user is new
-        const user = new User({ username, email, phone, password });
+        //Lets do Password Hashing first
+        const saltRounds = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+        const user = new User({ 
+            username, 
+            email, 
+            phone, 
+            password: hashedPassword
+        });
 
         //waiting to save in Atlas
         await user.save()
+
         res.status(201).json({ message: "User registered successfully" })
     }
     catch (err) {

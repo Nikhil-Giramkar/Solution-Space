@@ -116,3 +116,13 @@ Now when we again send POST request, we see what we requested
 After doing all validations, we write save() and handle promises
 Run the app and send post request again with Thunder Client,
 We get 210 status, entry created, check Mongo Atlas, entry is really created
+--------------------------------------------------------------------
+
+Password Hashing
+----------------
+Before saving user ingo to DB.
+It's password should be hashed, so that even DB Admin cannot misuse user's data.
+Hashin is one way process.
+Its almost impossible to retrieve password from hashed value.
+
+To do password hashing, we need bcrypt.js package from npm
