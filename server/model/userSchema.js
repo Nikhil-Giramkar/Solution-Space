@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 //Database design
 const userSchema = new mongoose.Schema({
-    name: {
+    username: {
         type: String,
         required: true
     },
@@ -11,10 +11,6 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     phone: {
-        type: Number,
-        required: true
-    },
-    work: {
         type: String,
         required: true
     },
@@ -22,13 +18,14 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    confirmPassword: {
-        type: String,
-        required: true
+    isAdmin: {
+        type: Boolean,
+        default: false
     },
 })
 
 //Attaching schema to collection/table
+//We must decalre name of collection as User only, on Atlas we will see it in plural form 'users'
 const User = new mongoose.model('USER', userSchema);
 
 //exporting it to use, whenever required

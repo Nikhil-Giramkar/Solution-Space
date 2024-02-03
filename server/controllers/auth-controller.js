@@ -29,10 +29,10 @@ const register = async (req, res) => {
     console.log(req.body);
 
     //Object destructuring
-    const { name, email, phone, work, password, confirmPassword } = req.body;
+    const { username, email, phone, password } = req.body;
 
     //validation
-    if (!name || !email || !phone || !work || !password || !confirmPassword) {
+    if (!username || !email || !phone || !password ) {
         return res.status(422).json({ error: "Please fill all fields" });
     }
     try {
@@ -43,7 +43,7 @@ const register = async (req, res) => {
             return res.status(422).json({ error: "User with same email exists" });
 
         //If user is new
-        const user = new User({ name, email, phone, work, password, confirmPassword });
+        const user = new User({ username, email, phone, password });
 
         //waiting to save in Atlas
         await user.save()
