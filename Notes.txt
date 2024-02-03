@@ -134,3 +134,28 @@ Which takes any action like "save".
 So before performing save action, we can define what action to be performed,
 so in pre method, we will define to do password hashing before save.
 Tested with thunderclient.
+--------------------------------------------------------------------
+
+JWT
+---------
+
+JWT is an open standard that defines a compact and self contained way to securely transmit information 
+between parties via JSON Object
+
+JWT is used for authentication and authorization.
+
+Components of JWT
+------------------
+Header : It contains metadata of token, like type of token and signing algorithm used.
+Payload: Contains claims made by an entity and additional data.
+        Common claims include ID, username, expriry date.
+Signature: To verify that sender of JWT is authentic and ensures the message was not changes along the way.
+
+Note:
+JWTs are not stored in DB.
+They are issued by server for authentication and stored on client-side (in cookies or local-storage)
+
+We have a npm package to handle JWT tasks.
+Which has mainly 2 methods
+    Sign: to issue a token for new client
+    verify: to authenticate/authorize a user

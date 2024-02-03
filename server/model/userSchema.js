@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
 
 //Database design
 const userSchema = new mongoose.Schema({
@@ -45,6 +47,31 @@ userSchema.pre('save', async function(){
         next(error);
     }
 })
+
+//JSON WEb Token method
+//methods is an instance method, by which we can create any method for userSchema
+userSchema.methods.generateToken = async function(){
+    try{
+        return jwt.sign(
+            //Payload 
+            {
+                userId: this._id.toString(),
+                email: this.email,
+                isAdmin: this.isAdmin
+            },
+            //Secret Key for signing
+            process.env.JWT_SECRET_KEY,
+            //options
+            {
+                expiresIn: "30d" //30 days
+            }
+        )
+    }
+    catch(error){
+        console.log(error)  
+    }
+
+}
 
 //Attaching schema to collection/table
 //We must decalre name of collection as User only, on Atlas we will see it in plural form 'users'

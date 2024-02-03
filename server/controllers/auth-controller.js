@@ -57,7 +57,11 @@ const register = async (req, res) => {
         //waiting to save in Atlas
         await user.save()
 
-        res.status(201).json({ message: "User registered successfully" })
+        res.status(201).json({ 
+            message: "Registeration successful", 
+            token: await user.generateToken(), //Passing JWT token issued by server to client
+            userId: user._id.toString()
+        });
     }
     catch (err) {
         console.log(err);
