@@ -126,3 +126,11 @@ Hashin is one way process.
 Its almost impossible to retrieve password from hashed value.
 
 To do password hashing, we need bcrypt.js package from npm
+
+There is a better place to use bcrypt hashing.
+In user schema.
+We can use a "pre" method of userSchema.
+Which takes any action like "save".
+So before performing save action, we can define what action to be performed,
+so in pre method, we will define to do password hashing before save.
+Tested with thunderclient.

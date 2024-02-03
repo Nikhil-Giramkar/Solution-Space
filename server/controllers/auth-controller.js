@@ -45,15 +45,13 @@ const register = async (req, res) => {
             return res.status(422).json({ error: "User with same email exists" });
 
         //If user is new
-        //Lets do Password Hashing first
-        const saltRounds = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(password, saltRounds);
+        
 
         const user = new User({ 
             username, 
             email, 
             phone, 
-            password: hashedPassword
+            password
         });
 
         //waiting to save in Atlas
