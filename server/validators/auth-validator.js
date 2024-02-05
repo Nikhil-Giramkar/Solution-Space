@@ -23,5 +23,17 @@ const registerSchema = z.object({
 
 })
 
+const loginSchema = z.object({
 
-module.exports = {registerSchema}
+    email: z.string({ required_error: "Email is required" })
+        .trim()
+        .email({ message: "Invalid email address" }),
+
+    password: z.string({ required_error: "Password is required" })
+        .min(6, {message: "Password must be atleast 6 characters"})
+        .max(255, {message: "Password must be atleast 255 characters"})
+
+})
+
+
+module.exports = {registerSchema, loginSchema}
