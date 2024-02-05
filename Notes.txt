@@ -178,3 +178,18 @@ So that error middleware gets notified
 Other wise it will work like normal error handling
 
 Error middleware should be placed at end in app.js
+--------------------------------------------------------------------
+
+FrontEnd Begins
+------------------
+ Install react via Vite.
+ Go to root directory "mernproject"
+ CLI
+    npm create vite@latest
+    Then, project name: client
+    Select React --> javascript
+
+    Then follow as given on terminal
+    cd client
+    npm install
+    npm run dev
