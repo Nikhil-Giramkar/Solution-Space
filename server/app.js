@@ -3,6 +3,9 @@ const express = require('express')
 const dotenv = require('dotenv')
 dotenv.config({path: './config.env'});
 
+const authRouter = require('./router/auth-router')
+const contactRouter = require('./router/contact-router')
+
 const errorMiddleware = require('./middlewares/error-middleware')
 const connectDB = require('./db/conn');
 
@@ -17,11 +20,9 @@ const PORT = process.env.PORT
 //To help app understand json data in request body
 app.use(express.json());
 
-
-//We will use middleware syntax to call router
-const router = require('./router/auth-router')
 //We will mount the router to a specific URL, So all routes will have api/auth as prefix, Ex: localhost:2344/api/auth/register
-app.use("/api/auth", router);
+app.use("/api/auth", authRouter);
+app.use("/api/form", contactRouter);
 
 
 app.use(errorMiddleware);
