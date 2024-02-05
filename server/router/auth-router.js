@@ -3,9 +3,6 @@ const router = express.Router();
 const {registerSchema} = require('../validators/auth-validator')
 const validate = require('../middlewares/validation-middleware')
 
-//Make DB Connection
-require('../db/conn');
-
 const authControllers = require('../controllers/auth-controller');
 
 router.route('/').get(authControllers.home);

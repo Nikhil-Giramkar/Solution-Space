@@ -164,3 +164,17 @@ Which has mainly 2 methods
 Form validation
 --------------
 We can validate forms using a opular npm package called "zod"
+
+--------------------------------------------------------------------
+
+Centralized error Handling
+---------------------------
+We can route all errors at a single file 
+And send them to frontend in a defined structure.
+For that we can use error middleawre present in Express.js
+
+But to call error middleware, we need to use next(err) inside catch block of every file
+So that error middleware gets notified
+Other wise it will work like normal error handling
+
+Error middleware should be placed at end in app.js

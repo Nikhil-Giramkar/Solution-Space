@@ -11,9 +11,16 @@ const validate = (schema) => async (req, res, next) => {
         next();
     }
     catch(err){
-        console.log(err)
-        const message = err.errors[0].message;// when validation fails we get an array of errors with message prop
-        res.status(400).json({message: message})
+        const status = 422;
+        const message = "Error in validate"
+        const extraDetails = err.errors[0].message;
+        const error = {
+            status,
+            message,
+            extraDetails
+        }
+        console.log(error);
+        next(error)
     }
 }
 
