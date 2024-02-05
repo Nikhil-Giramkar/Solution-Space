@@ -159,3 +159,8 @@ We have a npm package to handle JWT tasks.
 Which has mainly 2 methods
     Sign: to issue a token for new client
     verify: to authenticate/authorize a user
+
+--------------------------------------------------------------------
+Form validation
+--------------
+We can validate forms using a opular npm package called "zod"
