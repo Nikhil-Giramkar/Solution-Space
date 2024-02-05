@@ -23,7 +23,9 @@ const middleware = (req, res, next) =>{
     next();
 }
 //We will use middleware syntax to call router
-app.use(require('./router/auth-router'));
+const router = require('./router/auth-router')
+//We will mount the router to a specific URL, So all routes will have api/auth as prefix, Ex: localhost:2344/api/auth/register
+app.use("/api/auth", router);
 
 // app.get("/", (req, res)=>{
 //     res.send("Hello World from Backend Home Page!!!");

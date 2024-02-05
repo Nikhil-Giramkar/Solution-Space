@@ -65,8 +65,48 @@ const register = async (req, res) => {
     }
     catch (err) {
         console.log(err);
+        res.status(500).send("Internal Server error");
     }
 
 }
 
-module.exports = {home, register}
+//Login Logic
+const login = async (req, res) => {
+    //Se waht we get in request
+    console.log(req.body);
+
+    try{
+        const {email, password} = req.body;
+        
+        if(!email || !password)
+            return res.status(422).json({ error: "Please fill all fields" });
+
+        const userExists = await User.findOne({email: email})
+
+
+        if(!userExists)
+            return res.status(400).json({message: "Invalid credentials"})
+
+        //If email found, compare passwords
+
+        const isUserPasswordMatch = await bcrypt.compare(password, userExists.password);
+
+        if(isUserPasswordMatch){
+            res.status(201).json({ 
+                message: "Login successful", 
+                token: await userExists.generateToken(), //Passing JWT token issued by server to client
+                userId: userExists._id.toString()
+            });
+        }
+        else{
+            return res.status(400).json({message: "Invalid credentials"})
+        }
+    }
+    catch(error){
+        console.log(error);
+        res.status(500).send("Internal Server error");
+    }
+
+}
+
+module.exports = {home, register, login}
