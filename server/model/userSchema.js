@@ -73,6 +73,12 @@ userSchema.methods.generateToken = async function(){
 
 }
 
+//Password comparison
+userSchema.methods.comparePassword = async function(password){
+    const isPasswordMatch = await bcrypt.compare(password, this.password)
+    return isPasswordMatch;
+}
+
 //Attaching schema to collection/table
 //We must decalre name of collection as User only, on Atlas we will see it in plural form 'users'
 const User = new mongoose.model('USER', userSchema);

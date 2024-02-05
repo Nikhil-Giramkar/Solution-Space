@@ -89,7 +89,7 @@ const login = async (req, res) => {
 
         //If email found, compare passwords
 
-        const isUserPasswordMatch = await bcrypt.compare(password, userExists.password);
+        const isUserPasswordMatch = await userExists.comparePassword(password);
 
         if(isUserPasswordMatch){
             res.status(201).json({ 
