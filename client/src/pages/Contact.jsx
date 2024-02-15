@@ -1,4 +1,30 @@
+import { useState } from "react"
+
 export const Contact = () => {
+
+    const [contactForm, setContactForm] = useState({
+        username: "",
+        email: "",
+        message: ""
+    });
+
+    const handleInputChange = (e) => {
+        let name = e.target.name;
+        let value = e.target.value;
+
+        setContactForm({
+            ...contactForm,
+            [name]: value,
+        })
+    }
+
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        console.log(contactForm)
+    }
+
+
     return (
         <>
         <section className="section-contact">
@@ -13,7 +39,7 @@ export const Contact = () => {
                 </div>
 
                 <section className="section-form">
-                    <form action="">
+                    <form action="" onSubmit={handleFormSubmit}>
                         <div>
                             <label htmlFor="username">Username</label>
                             <input 
@@ -21,6 +47,8 @@ export const Contact = () => {
                             name="username" 
                             id="username" 
                             autoComplete="off" 
+                            value={contactForm.username}
+                            onChange={handleInputChange}
                             required/>
                         </div>
 
@@ -30,7 +58,9 @@ export const Contact = () => {
                             type="text" 
                             name="email" 
                             id="email" 
-                            autoComplete="off" 
+                            autoComplete="off"
+                            value={contactForm.email}
+                            onChange={handleInputChange} 
                             required/>
                         </div>
 
@@ -43,6 +73,8 @@ export const Contact = () => {
                             autoComplete="off" 
                             cols="30"
                             rows="10"
+                            value={contactForm.message}
+                            onChange={handleInputChange}
                             required></textarea>
                         </div>
 
