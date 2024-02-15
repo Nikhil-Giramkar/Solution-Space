@@ -35,7 +35,7 @@ export const Contact = () => {
             </div>
             <div className="container grid grid-two-cols">
                 <div className="contact-img">
-                    <img src="/images/support.png" alt="Contact us" height="500" width="400"/>
+                    <img src="/images/support.png" alt="Contact us"/>
                 </div>
 
                 <section className="section-form">
@@ -66,13 +66,12 @@ export const Contact = () => {
 
                         <div>
                             <label htmlFor="message">Message</label>
-                            <br></br>
                             <textarea 
                             name="message" 
                             id="message" 
                             autoComplete="off" 
                             cols="30"
-                            rows="10"
+                            rows="5"
                             value={contactForm.message}
                             onChange={handleInputChange}
                             required></textarea>
