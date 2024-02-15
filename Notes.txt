@@ -193,3 +193,12 @@ FrontEnd Begins
     cd client
     npm install
     npm run dev
+--------------------------------------------------------------------
+
+To paste Google Map in your website,
+Search the location on Google Maps.
+Click on Share button
+We see Link and Embed as 2 options there..
+Click on Embed,
+We see the html code <iframe>....</iframe>
+Copy it and paste in code where you want to show Google Map location
