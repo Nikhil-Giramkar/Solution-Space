@@ -202,3 +202,9 @@ We see Link and Embed as 2 options there..
 Click on Embed,
 We see the html code <iframe>....</iframe>
 Copy it and paste in code where you want to show Google Map location
+--------------------------------------------------------------------
+
+To implemet 404 error page:
+We need to add
+    <Route path="*" element={<Error/>}/>
+this will route to Error page, whenever user tries to access URL other than the above mentioned in <BrowserRouter>
