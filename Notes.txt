@@ -217,3 +217,22 @@ We can do that using fetch() api or axios
 Lets use fetch()
 Here e specify all the details like Content-Type, method
 like we had to mention in ThunderClient/PostMan earlier
+
+But we get following error:
+Access to fetch at 'http://localhost:8765/api/auth/register' from origin 'http://localhost:5173' has been blocked by CORS policy: 
+Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. 
+If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+
+Cross Origin Resourse Sharing (CORS) policy implemented by all web browsers 
+blocks the users to make request to domain
+different than the one serving the webpages.
+This is because, our Frontend and Backend are running on different ports (hence treated as different domains).
+
+In production environment, we never get this CORS error because both frontend and backend
+are hoisted on same domain.
+
+
+To resolve this issue:
+Go to server folder
+    npm i cors
+Use cors as middlware, above all

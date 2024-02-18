@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors');
 
 const dotenv = require('dotenv')
 dotenv.config({path: './config.env'});
@@ -16,7 +17,18 @@ dotenv.config({path: './config.env'});
 //Fetch PORT number from config file 
 const PORT = process.env.PORT
 
-//Middleware
+//Middlewares
+
+//Handling CORS policy issue
+
+//Need to mention cors option else data won't be saved in DB
+const corsOptions = {
+    origin: "http://localhost:5173", //frontend URL
+    methods: "GET, POST, PUT, DELETE, PATCH, HEAD", //Types of requests to accept from above URL
+    credentials: true,
+}
+app.use(cors(corsOptions));
+
 //To help app understand json data in request body
 app.use(express.json());
 
