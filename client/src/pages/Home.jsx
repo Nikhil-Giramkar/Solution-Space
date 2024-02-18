@@ -9,19 +9,19 @@ export const Home = () => {
           <div className="container grid grid-two-cols">
             <div className="hero-content">
               <p>We are the World Best IT Company</p>
-              <h1>Nikhil Company</h1>
+              <h1>Solution Space</h1>
               <p>
                 Are you ready to take your business to the next level with
-                cutting-edge IT solutions? Look no further! At Thapa Technical,
+                cutting-edge IT solutions? Look no further! At Solution Space,
                 we specialize in providing innovative IT services and solutions
                 tailored to meet your unique needs.
               </p>
               <div className="btn btn-group">
                 <a href="/contact">
-                  <button className="btn">connect now</button>
+                  <button className="btn">Connect Now</button>
                 </a>
                 <a href="/services">
-                  <button className="btn secondary-btn">learn more</button>
+                  <button className="btn secondary-btn">Learn More</button>
                 </a>
               </div>
             </div>

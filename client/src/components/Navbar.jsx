@@ -6,7 +6,7 @@ export const Navbar = () => {
             <header>
                 <div className="container">
                     <div className="logo-brand">
-                        <NavLink to="/">Nikhil Logo</NavLink>
+                        <NavLink to="/">Solution Space</NavLink>
                     </div>
 
                     <nav>
