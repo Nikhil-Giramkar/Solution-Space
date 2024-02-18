@@ -1,6 +1,9 @@
 import { useState } from "react"
+import {useNavigate} from "react-router-dom"
 
 export const Register = () => {
+
+    const navigate = useNavigate();
 
     const [user, setUser] = useState({
         username: "",
@@ -34,6 +37,19 @@ export const Register = () => {
                 })
 
             console.log(response)
+
+            if (response.ok) {
+                //Empty all fields when submit successful
+                setUser({
+                    username: "",
+                    email: "",
+                    phone: "",
+                    password: "",
+                })
+
+                //Navigate to login page
+                navigate("/login")
+            }
         }
         catch (error) {
             console.log("Error in sending Registration data to backend: ", error)
