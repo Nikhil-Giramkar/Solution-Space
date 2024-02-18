@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 export const Register = () => {
-    
+
     const [user, setUser] = useState({
         username: "",
         email: "",
@@ -15,14 +15,29 @@ export const Register = () => {
 
         setUser({
             ...user,
-        [name]: value,
+            [name]: value,
         })
     }
 
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = async (e) => {
         e.preventDefault();
-        alert(user);
         console.log(user)
+        try {
+            //Send to backend
+            const response = await fetch(`http://localhost:8765/api/auth/register`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(user)
+                })
+
+            console.log(response)
+        }
+        catch (error) {
+            console.log("Error in sending Registration data to backend: ", error)
+        }
     }
     return (
         <>
@@ -40,65 +55,65 @@ export const Register = () => {
 
 
                                 <form onSubmit={handleFormSubmit} >
-                                <div>
-                                    <label htmlFor="username">Username</label>
-                                    <input 
-                                    type="text" 
-                                    name="username" 
-                                    placeholder="username"
-                                    id="username"
-                                    required
-                                    autoComplete="off"
-                                    value={user.username}
-                                    onChange={handleInput}
-                                    />
-                                </div>
+                                    <div>
+                                        <label htmlFor="username">Username</label>
+                                        <input
+                                            type="text"
+                                            name="username"
+                                            placeholder="username"
+                                            id="username"
+                                            required
+                                            autoComplete="off"
+                                            value={user.username}
+                                            onChange={handleInput}
+                                        />
+                                    </div>
 
-                                <div>
-                                    <label htmlFor="email">Email</label>
-                                    <input 
-                                    type="text" 
-                                    name="email" 
-                                    placeholder="email"
-                                    id="email"
-                                    required
-                                    autoComplete="off"
-                                    value={user.email}
-                                    onChange={handleInput}
-                                    />
-                                </div>
+                                    <div>
+                                        <label htmlFor="email">Email</label>
+                                        <input
+                                            type="text"
+                                            name="email"
+                                            placeholder="email"
+                                            id="email"
+                                            required
+                                            autoComplete="off"
+                                            value={user.email}
+                                            onChange={handleInput}
+                                        />
+                                    </div>
 
-                                <div>
-                                    <label htmlFor="phone">Phone</label>
-                                    <input 
-                                    type="text" 
-                                    name="phone" 
-                                    placeholder="phone"
-                                    id="phone"
-                                    required
-                                    autoComplete="off"
-                                    value={user.phone}
-                                    onChange={handleInput}
-                                    />
-                                </div>
+                                    <div>
+                                        <label htmlFor="phone">Phone</label>
+                                        <input
+                                            type="text"
+                                            name="phone"
+                                            placeholder="phone"
+                                            id="phone"
+                                            required
+                                            autoComplete="off"
+                                            value={user.phone}
+                                            onChange={handleInput}
+                                        />
+                                    </div>
 
-                                <div>
-                                    <label htmlFor="password">Password</label>
-                                    <input 
-                                    type="password" 
-                                    name="password" 
-                                    placeholder="password"
-                                    id="password"
-                                    required
-                                    autoComplete="off"
-                                    value={user.password}
-                                    onChange={handleInput}
-                                    />
-                                </div>
+                                    <div>
+                                        <label htmlFor="password">Password</label>
+                                        <input
+                                            type="password"
+                                            name="password"
+                                            placeholder="password"
+                                            id="password"
+                                            required
+                                            autoComplete="off"
+                                            value={user.password}
+                                            onChange={handleInput}
+                                        />
+                                    </div>
 
-                                <br/>
+                                    <br />
 
-                                <button type="submit" className="btn btn-submit">Register Now</button>
+                                    <button type="submit" className="btn btn-submit">Register Now</button>
                                 </form>
                             </div>
                         </div>

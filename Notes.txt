@@ -208,3 +208,12 @@ To implemet 404 error page:
 We need to add
     <Route path="*" element={<Error/>}/>
 this will route to Error page, whenever user tries to access URL other than the above mentioned in <BrowserRouter>
+--------------------------------------------------------------------
+
+Connecting FRONTEND TO BACKEND
+-------------------------------
+We need to Post the Registeration form to the port where Backend is listening
+We can do that using fetch() api or axios
+Lets use fetch()
+Here e specify all the details like Content-Type, method
+like we had to mention in ThunderClient/PostMan earlier
