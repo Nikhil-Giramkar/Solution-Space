@@ -1,9 +1,11 @@
 import { useState } from "react"
 import {useNavigate} from "react-router-dom"
+import { useAuth } from "../store/auth";
 
 export const Register = () => {
 
     const navigate = useNavigate();
+    const {storeTokenInLocalStorage} = useAuth();
 
     const [user, setUser] = useState({
         username: "",
@@ -39,6 +41,10 @@ export const Register = () => {
             console.log(response)
 
             if (response.ok) {
+                //Take token and store in Local storage
+                const responseJson = await response.json();
+                storeTokenInLocalStorage(responseJson.token);
+
                 //Empty all fields when submit successful
                 setUser({
                     username: "",

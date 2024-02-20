@@ -236,3 +236,24 @@ To resolve this issue:
 Go to server folder
     npm i cors
 Use cors as middlware, above all
+--------------------------------------------------------------------
+
+Once we login/register
+We need to store the JWT of user in his local storage
+For authentication purpose.
+
+Now, we need to store the JWT token during login and register both.
+But we should avoid writing dupliate code.
+
+So we will use ContextAPI
+This will help us write a function at one place and make it accessible throughout the application
+in any page.
+
+Hence,
+we create a context.
+Ceate provider of that context and specify in value={} what should be accessible
+
+We create a custom hook which will act as delivery boy and can be imported in any page
+To access functions written in provider.
+
+Wrap the entire application around AuthProvider in main.jsx
