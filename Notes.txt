@@ -257,3 +257,15 @@ We create a custom hook which will act as delivery boy and can be imported in an
 To access functions written in provider.
 
 Wrap the entire application around AuthProvider in main.jsx
+--------------------------------------------------------------------
+
+Logout funtionality
+--------------------
+When we logout of the app, we need to delete the JWT Token.
+After doing that, we need to return to Login Page.
+
+Create Logout.jsx 
+Set Logout Route
+Removing Token from Localstorage
+UseState for Token.
+Showing Navbar links based on login

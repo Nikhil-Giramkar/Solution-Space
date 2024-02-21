@@ -7,6 +7,7 @@ import { Register } from "./pages/Register"
 import { About } from "./pages/About"
 import { Navbar } from "./components/Navbar"
 import { Error } from "./pages/Error"
+import { Logout } from "./pages/Logout"
 const App = () => {
   return (
     <>
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/sevice" element={<Service />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/logout" element = {<Logout/>}/>
           <Route path="*" element={<Error/>}/>
         </Routes>
       </BrowserRouter>
