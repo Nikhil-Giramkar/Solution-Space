@@ -269,3 +269,20 @@ Set Logout Route
 Removing Token from Localstorage
 UseState for Token.
 Showing Navbar links based on login
+--------------------------------------------------------------------
+
+Authentication of JWT Token
+
+Once user logged in, we need to display his information.
+To get data of user from DB, we need to first validate the JWT Token.
+
+To validate JWT token, we create a middleware.
+Here, we get the payload on verification.
+Email in payload is used to fetch User Data from DB.
+This user data is attached to request Object
+so that, it can be used in /user endpoint.
+
+Test on ThunderClient
+Using Authorization in Headers
+and put - Bearer xxxxxxxxxxxxx 
+JWT token you get on logging in
